@@ -31,6 +31,7 @@ const App = () => {
       },
     ],
     items: sample_data,
+    primaryKey: 'id',
     searchText: '',
     style: {},
   }
