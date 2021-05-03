@@ -2,6 +2,14 @@ import React, { useState, useEffect } from 'react';
 import GMTableHead from '../header/header';
 import GMTableItem from '../item/item';
 import Footer from '../footer/footer';
+import {
+    handleDataRequest,
+    handleItemSelection,
+    handleItemsToDisplay,
+    handleSort,
+    processMenuAction,
+    toggleBulkSelection
+} from './helper';
 import './table.css';
 
 const Table = ({ config, onDataRequest, onMenuAction, onItemClick }) => {
@@ -16,89 +24,36 @@ const Table = ({ config, onDataRequest, onMenuAction, onItemClick }) => {
     const [rowsPerPage] = useState(numOfRowsPerPage || 10);
     const [sortCriteria, setSortCriteria] = useState({});
 
+    const [makeRequest, setMakeRequest] = useState(false);
+
     useEffect(() => {
-        handleItemsToDisplay();
+        setItemsToDisplay(() => handleItemsToDisplay(allItems, pageNumber, rowsPerPage));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [allItems, pageNumber, numOfRowsPerPage]);
 
     useEffect(() => {
         if (!sortCriteria.field) return;
-        handleSort();
+        setAllItems(allItems => handleSort(allItems, sortCriteria));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sortCriteria]);
 
-    const toggleBulkSelection = () => {
-        if (Object.keys(selectedItems).length === itemsToDisplay.length) {
-            setSelectedItems(() => ({}));
-            return;
-        }
-
-        setSelectedItems(() => itemsToDisplay.reduce((sac, item) => ({
-            ...sac,
-            [item[primaryKey]]: { ...item }
-        }), {}));
-    }
-
-    const handleItemSelection = (itemData) => {
-        setSelectedItems(selectedItems => {
-            const ITEM_KEY = itemData[primaryKey];
-            if (selectedItems[ITEM_KEY]) {
-                let selections = { ...selectedItems };
-                delete selections[ITEM_KEY];
-                return selections;
-            }
-
-            return {
-                ...selectedItems,
-                [ITEM_KEY]: itemData,
-            }
-        });
-    }
-
-    const handleItemsToDisplay = () => {
-        const start = pageNumber * rowsPerPage;
-        const end = start + rowsPerPage;
-
-        setItemsToDisplay(() => [...allItems].slice(start, end));
-    }
-
-    const handleSort = () => {
-        const { field, isAscending } = sortCriteria;
-        setAllItems(allItems => {
-            let items = [...allItems];
-            if (isAscending) {
-                return items.sort((a, b) => {
-                    if (a[field] > b[field]) return 1;
-                    else return -1;
-                });
-            } else {
-                return items.sort((a, b) => {
-                    if (a[field] > b[field]) return -1;
-                    else return 1;
-                });
-            }
-        });
-    }
-
-    const processMenuAction = (action) => {
-        if (action.type === "bulk") {
-            onMenuAction({
-                ...action,
-                payload: Object.values(selectedItems),
-            })
-            return;
-        }
-
-        onMenuAction(action)
-    }
+    useEffect(() => {
+        if(!makeRequest) return;
+        setAllItems(allItems => [
+            ...allItems,
+            ...handleDataRequest(pageNumber, onDataRequest),
+        ])
+        setMakeRequest(() => false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [makeRequest]);
 
     return <div className="rd-table-wrapper">
         <table className="rd-table">
             <GMTableHead
                 actions={actions.bulk}
                 fields={fields}
-                onBulkSelection={toggleBulkSelection}
-                onMenuAction={processMenuAction}
+                onBulkSelection={() => toggleBulkSelection(itemsToDisplay, primaryKey, selectedItems, setSelectedItems)}
+                onMenuAction={action => processMenuAction(action, selectedItems, onMenuAction)}
                 onSort={setSortCriteria} />
             <tbody>
                 {itemsToDisplay.map(item => <GMTableItem
@@ -107,13 +62,18 @@ const Table = ({ config, onDataRequest, onMenuAction, onItemClick }) => {
                     isSelected={selectedItems[item[primaryKey]]}
                     key={item[primaryKey]}
                     onItemClick={onItemClick}
-                    onItemSelection={handleItemSelection}
-                    onMenuAction={processMenuAction}
+                    onItemSelection={itemData => handleItemSelection(itemData, primaryKey, selectedItems)}
+                    onMenuAction={action => processMenuAction(action, selectedItems, onMenuAction)}
                 />)}
             </tbody>
         </table>
 
-        <Footer numOfItems={allItems.length} numOfRows={rowsPerPage} onPageChange={setPageNumber} />
+        <Footer
+            numOfItems={allItems.length}
+            numOfRows={rowsPerPage}
+            onPageChange={setPageNumber}
+            onDataRequest={setMakeRequest}
+        />
     </div>
 };
 

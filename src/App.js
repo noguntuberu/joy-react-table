@@ -38,8 +38,8 @@ const App = () => {
     style: {},
   }
 
-  const handleDataRequest = (needle, mode) => {
-    console.log({ needle, mode });
+  const handleDataRequest = (page) => {
+    console.log({ page });
   }
 
   const handleMenuAction = (action) => {

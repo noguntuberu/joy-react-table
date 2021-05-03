@@ -1,14 +1,7 @@
 import React from 'react';
 import ContextMenu from '../menu/menu';
-
+import { processAction } from './helper';
 const GMTableItem = ({ actions, data, fields, isSelected, onItemSelection, onItemClick, onMenuAction }) => {
-    const processAction = (action) => {
-        onMenuAction({
-            action,
-            type: 'single',
-            payload: data,
-        });
-    }
 
     return <tr className="gm-table-line-item" onClick={() => onItemClick(data)}>
         {actions && actions.length ? <td>
@@ -23,7 +16,7 @@ const GMTableItem = ({ actions, data, fields, isSelected, onItemSelection, onIte
             return <td key={key}>{data[field.key]}</td>
         })}
         {actions && actions.length ? <td onClick={e => e.stopPropagation()}>
-            <ContextMenu actions={actions} onMenuAction={processAction} text="Action" />
+            <ContextMenu actions={actions} onMenuAction={action => processAction(action, data, onMenuAction)} text="Action" />
         </td> : <></>}
     </tr>
 };
