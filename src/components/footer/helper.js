@@ -16,7 +16,7 @@ const determinePageList = (pagesList, pageNumber, callback) => {
     return visiblePageNumbers.map(page => createButton(page, pageNumber, callback));
 }
 
-export const generatePageList = (numOfItems, numOfRows) => {
+export const generatePageList = (numOfItems = 0, numOfRows = 0) => {
     let limit = Math.ceil(numOfItems / numOfRows);
     let list = [];
     for (let i = 0; i < limit; i++) {
@@ -25,7 +25,7 @@ export const generatePageList = (numOfItems, numOfRows) => {
     return list;
 }
 
-export const formatFooterMessage = (numOfItems, numOfRows, pageNumber) => {
+export const formatFooterMessage = (numOfItems = 0, numOfRows = 0, pageNumber = 0) => {
     const start = pageNumber ? pageNumber * numOfRows + 1 : 1;
     const end = (numOfRows + start) - 1;
     const emptyDataMessage = `No item(s) to display`;
@@ -34,7 +34,7 @@ export const formatFooterMessage = (numOfItems, numOfRows, pageNumber) => {
     return numOfItems ? nonEmptyDataMessage : emptyDataMessage;
 }
 
-export const formatPagination = (numOfItems, numOfRows, pagesList, pageNumber, callback) => {
+export const formatPagination = (numOfItems = 0, numOfRows = 0, pagesList = [], pageNumber = 0, callback) => {
     const high = Math.ceil(numOfItems / numOfRows);
 
     return (
