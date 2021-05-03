@@ -1,6 +1,6 @@
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
+import { render, unmountComponentAtNode } from "react-dom";
 import * as Helper from './helper';
 
 describe("Testing Footer Helpers:", () => {
