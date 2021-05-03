@@ -9,16 +9,14 @@ describe("Footer tests:", () => {
     container = document.createElement("div");
     document.body.appendChild(container);
 
-    const onDataRequest = jest.fn((param) => param);
-    const onPageChange = jest.fn((param) => param);
-
+    const callback = jest.fn((param) => param);
     act(() => {
       render(
         <Footer
           numOfItems={100}
           numOfRows={10}
-          onDataRequest={onDataRequest}
-          onPageChange={onPageChange}
+          onDataRequest={callback}
+          onPageChange={callback}
         />,
         container
       );
