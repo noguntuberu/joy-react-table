@@ -1,0 +1,7 @@
+/**/
+.rd-pagination > button {
+    background-color: transparent;
+    border: none;
+    color: rgb(7, 69, 105);
+    margin: 2px;
+}

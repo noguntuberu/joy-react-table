@@ -1,11 +1,11 @@
 import React from 'react';
 import GMTable from './components/table/table';
-import { sample_data } from './data/sample';
+import sample_data from './data/sample.json';
 import './App.css';
 const App = () => {
   const config = {
     actions: {
-      bulk: ['Delete'],
+      bulk: ['Export', 'Delete'],
       single: ['View', 'Edit', 'Delete'],
     },
     fields: [
@@ -16,17 +16,19 @@ const App = () => {
       {
         title: 'Full Name',
         key: 'name',
+        isSortable: true,
         isTitle: true,
       },
       {
         title: 'Email Address',
         key: 'email',
+        isSortable: true,
         isTagline: true,
       },
       {
         title: 'Date created',
         key: 'date',
-        formatter: value => (new Date(value)).toDateString(),
+        formatter: value => (new Date(Number(value))).toDateString(),
         isMetadata: true,
       },
     ],
@@ -37,17 +39,23 @@ const App = () => {
   }
 
   const handleDataRequest = (needle, mode) => {
-
+    console.log({ needle, mode });
   }
 
   const handleMenuAction = (action) => {
+    console.log(action);
 
+  }
+
+  const handleItemClick = (item) => {
+    console.log(item);
   }
 
   return <GMTable
     config={config}
     onDataRequest={handleDataRequest}
     onMenuAction={handleMenuAction}
+    onItemClick={handleItemClick}
   />
 }
 

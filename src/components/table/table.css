@@ -1,0 +1,27 @@
+/**/
+.rd-table {
+    border: none;
+    border-collapse: collapse;
+
+    width: 100%;
+} 
+
+.rd-table td {
+    border: none;
+    padding: 5px 7.5px;
+}
+
+.rd-table tbody > tr {
+    background-color: #e6e6e6;
+}
+
+.rd-table tbody > tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.rd-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+}
