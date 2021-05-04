@@ -186,7 +186,7 @@ export default App;
 Help is always welcome to the React Datatable project. If you think there's a feature missing or you found a bug, we'd appreciate it if you
 could spare some time and prepare a pull request. If you're only interested in making any contribution to this project, take a look at the open issues (especially "bugs").
 
-You can learn more about contributing in the [Contribution Docs](https://github.com/noguntuberu/react-datatable/contributing.md).
+You can learn more about contributing in the [Contribution Docs](https://github.com/noguntuberu/react-datatable/blob/main/contributing.md).
 
 ## License
 [MIT](https://opensource.org/licenses/MIT).

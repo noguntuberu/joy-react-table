@@ -2,7 +2,7 @@
 Hello :wave: We're glad and really excited that you're contributing to this project :tada: :tada:
 
 ## Code of Conduct
-This project and everyone participating in it is governed by the[ Code of Conduct](https://github.com/noguntuberu/react-datatable/conduct.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [nateoguns.work@gmail.com](mailto:nateoguns.work@gmail.com).
+This project and everyone participating in it is governed by the[ Code of Conduct](https://github.com/noguntuberu/react-datatable/blob/main/conduct.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [nateoguns.work@gmail.com](mailto:nateoguns.work@gmail.com).
 
 ## Our Values
 
@@ -30,7 +30,7 @@ If you are able to solve an issue, your solutions are always welcome.
 ## Pull Requests
 We are very happy about pull requests from the community and will discuss and merge them in a timely manner. When preparing a pull request please follow these guidelines:
 
-* You can find instructions for building and testing in the [next section](https://github.com/noguntuberu/react-datatable/contributing.md#building-and-testing).
+* You can find instructions for building and testing in the [next section](https://github.com/noguntuberu/react-datatable/blob/main/contributing.md#building-and-testing).
 * Make sure to write helper functions in helper.js files (& keep them as pure as possible).
 * Make sure to cover new functions and bug fixes with sufficient tests (Test cases should be as small as possible).
 * Make sure all tests are green before committing (`npm run test`)
@@ -48,3 +48,5 @@ We are very happy about pull requests from the community and will discuss and me
     `npm run test`
 
 *NOTE*: Tests reside in the same folder as the component/file you are testing.
+
+*Once Again, Thank you for contributing* :tada:
