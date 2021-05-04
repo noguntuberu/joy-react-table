@@ -48,3 +48,5 @@ We are very happy about pull requests from the community and will discuss and me
     `npm run test`
 
 *NOTE*: Tests reside in the same folder as the component/file you are testing.
+
+*Once Again, Thank you for contributing* :tada:
