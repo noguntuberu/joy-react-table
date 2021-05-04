@@ -88,6 +88,101 @@ Argument | Type | Default | Description
 ---------|------|---------|------------
 item | Object | {} | The data for the clicked line item.
 
+## Example
+```
+import RDTable from 'react-datatable';
+
+const App = () => {
+    const sample_data = [
+        {
+            id: 1,
+            name: "Rahmon Abdulkadir",
+            email: "r.abdulkadir@gmail.com",
+            date: Date.now(),
+        },
+        {
+            id: 2,
+            name: "Ambrose Alli",
+            email: "ambralli@gmail.com",
+            date: Date.now(),
+        },
+        {
+            id: 3,
+            name: "Ahmed Muktar",
+            email: "m.ahmed@gmail.com",
+            date: Date.now(),
+        },
+        {
+            id: 4,
+            name: "Ramin Djawadi",
+            email: "ramin.d@gmail.com",
+            date: Date.now(),
+        },
+        {
+            id: 5,
+            name: "Zainab Arabi",
+            email: "zarabi@gmail.com",
+            date: Date.now(),
+        },
+    ]
+    const config = {
+        actions: {
+            bulk: ['Export', 'Delete'],
+            single: ['View', 'Edit', 'Delete'],
+        },
+        fields: [
+            {
+                title: 'ID',
+                key: 'id',
+            },
+            {
+                title: 'Full Name',
+                key: 'name',
+                isSortable: true,
+                isTitle: true,
+            },
+            {
+                title: 'Email Address',
+                key: 'email',
+                isSortable: true,
+                isTagline: true,
+            },
+            {
+                title: 'Date created',
+                key: 'date',
+                formatter: value => (new Date(Number(value))).toDateString(),
+                isMetadata: true,
+            },
+        ],
+        items: sample_data,
+        primaryKey: 'id',
+        style: {},
+    }
+
+  const handleDataRequest = (pageNumber) => {
+    console.log({ pageNumber });
+  }
+
+  const handleMenuAction = (action) => {
+    console.log(action);
+
+  }
+
+  const handleItemClick = (item) => {
+    console.log(item);
+  }
+
+  return <RDTable
+    config={config}
+    onDataRequest={handleDataRequest}
+    onMenuAction={handleMenuAction}
+    onItemClick={handleItemClick}
+  />
+}
+
+export default App;
+```
+
 
 ## Issues and Contributions
 Help is always welcome to the React Datatable project. If you think there's a feature missing or you found a bug, we'd appreciate it if you

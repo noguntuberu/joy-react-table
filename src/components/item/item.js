@@ -1,7 +1,7 @@
 import React from 'react';
 import ContextMenu from '../menu/menu';
 import { processAction } from './helper';
-const GMTableItem = ({ actions, data, fields, isSelected, onItemSelection, onItemClick, onMenuAction }) => {
+const RDItem = ({ actions, data, fields, isSelected, onItemSelection, onItemClick, onMenuAction }) => {
 
     return <tr className="gm-table-line-item" onClick={() => onItemClick(data)}>
         {actions && actions.length ? <td>
@@ -21,4 +21,4 @@ const GMTableItem = ({ actions, data, fields, isSelected, onItemSelection, onIte
     </tr>
 };
 
-export default GMTableItem;
+export default RDItem;

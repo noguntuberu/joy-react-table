@@ -3,7 +3,7 @@ import ContextMenu from '../menu/menu';
 import { processAction, processSortCriteria,} from './helper';
 import './header.css';
 
-const GMTableHead = ({ actions, fields, onBulkSelection, onMenuAction, onSort, style }) => {
+const RDHead = ({ actions, fields, onBulkSelection, onMenuAction, onSort, style }) => {
     const [sortCriteria, setSortCriteria] = useState({ field: '', isAscending: false });
 
     useEffect(() => {
@@ -32,4 +32,4 @@ const GMTableHead = ({ actions, fields, onBulkSelection, onMenuAction, onSort, s
     </thead>
 };
 
-export default GMTableHead;
+export default RDHead;

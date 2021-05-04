@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { generatePageList, formatFooterMessage, formatPagination } from './helper';
 import './footer.css';
 
-const Footer = ({ numOfItems, numOfRows, onDataRequest, onPageChange, style }) => {
+const RDFooter = ({ numOfItems, numOfRows, onDataRequest, onPageChange, style }) => {
     const [pageNumber, setPageNumber] = useState(0);
     const [pagesList] = useState(() => generatePageList(numOfItems, numOfRows));
 
@@ -22,4 +22,4 @@ const Footer = ({ numOfItems, numOfRows, onDataRequest, onPageChange, style }) =
     </div>
 };
 
-export default Footer;
+export default RDFooter;
