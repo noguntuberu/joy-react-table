@@ -1,8 +1,8 @@
 {
-  "name": "react-datatable",
+  "name": "simple-react-datatable",
   "version": "1.0.0",
   "author": "noguntuberu",
-  "repository": "https://github.com/noguntuberu/react-datatable.git",
+  "repository": "https://github.com/noguntuberu/simple-react-datatable.git",
   "license": "MIT",
   "description": "A simple, responsive react based datatable.",
   "keywords": [
