@@ -1,8 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 
 import './menu.css';
-const Menu = ({ actions, onMenuAction, text }) => {
-
+const Menu = ({ actions, onMenuAction, style, text }) => {
     const [showMenu, setShowMenu] = useState(false);
     const [menuItemClicked, setMenuItemClicked] = useState(false);
     const contextMenu = useRef(null);
@@ -52,12 +51,16 @@ const Menu = ({ actions, onMenuAction, text }) => {
         {actions ? <div>
             {showMenu ?
                 <div ref={contextMenu} className="rd-menu-wrapper">
-                    <div ref={menuWrapper} className="rd-menu-tray">
+                    <div ref={menuWrapper} className="rd-menu-tray" style={style.contextMenuTray}>
                         <ul>
-                            {(actions || []).map((action, index) => <li key={index} onClick={e => {
-                                e.stopPropagation();
-                                selectAction(action)
-                            }}>{action}</li>)}
+                            {(actions || []).map((action, index) => <li
+                                key={index}
+                                onClick={e => {
+                                    e.stopPropagation();
+                                    selectAction(action)
+                                }}
+                                style={style.contextMenuItem}
+                            >{action}</li>)}
                         </ul>
                     </div>
                 </div>

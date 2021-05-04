@@ -15,7 +15,12 @@ describe("Context Menu Test:", () => {
 
     act(() => {
       render(
-        <Menu actions={actions} text={text} onMenuAction={onMenuAction} />,
+        <Menu
+          actions={actions}
+          text={text}
+          onMenuAction={onMenuAction}
+          style={{}}
+        />,
         container
       );
     });

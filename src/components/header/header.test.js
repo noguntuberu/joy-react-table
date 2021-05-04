@@ -34,6 +34,7 @@ describe("Header component test:", () => {
                     onBulkSelection={bulkCallback}
                     onMenuAction={onMenuCallback}
                     onSort={sortCallback}
+                    style={{}}
                 />,
                 container
             );

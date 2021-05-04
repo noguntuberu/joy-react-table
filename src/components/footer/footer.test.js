@@ -17,7 +17,8 @@ describe("Footer tests:", () => {
           numOfRows={10}
           onDataRequest={callback}
           onPageChange={callback}
-        />,
+          style={{}}
+          />,
         container
       );
     });

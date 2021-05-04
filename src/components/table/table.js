@@ -47,14 +47,16 @@ const Table = ({ config, onDataRequest, onMenuAction, onItemClick }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [makeRequest]);
 
-    return <div className="rd-table-wrapper">
-        <table className="rd-table">
+    return <div className="rd-table-wrapper" style={style.tableWrapper}>
+        <table className="rd-table" style={style.table}>
             <GMTableHead
                 actions={actions.bulk}
                 fields={fields}
                 onBulkSelection={() => toggleBulkSelection(itemsToDisplay, primaryKey, selectedItems, setSelectedItems)}
                 onMenuAction={action => processMenuAction(action, selectedItems, onMenuAction)}
-                onSort={setSortCriteria} />
+                onSort={setSortCriteria} 
+                style={style}
+                />
             <tbody>
                 {itemsToDisplay.map(item => <GMTableItem
                     actions={actions.single}
@@ -73,6 +75,7 @@ const Table = ({ config, onDataRequest, onMenuAction, onItemClick }) => {
             numOfRows={rowsPerPage}
             onPageChange={setPageNumber}
             onDataRequest={setMakeRequest}
+            style={style}
         />
     </div>
 };

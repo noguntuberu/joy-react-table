@@ -3,7 +3,7 @@ import ContextMenu from '../menu/menu';
 import { processAction, processSortCriteria,} from './helper';
 import './header.css';
 
-const GMTableHead = ({ actions, fields, onBulkSelection, onMenuAction, onSort }) => {
+const GMTableHead = ({ actions, fields, onBulkSelection, onMenuAction, onSort, style }) => {
     const [sortCriteria, setSortCriteria] = useState({ field: '', isAscending: false });
 
     useEffect(() => {
@@ -11,7 +11,7 @@ const GMTableHead = ({ actions, fields, onBulkSelection, onMenuAction, onSort })
         onSort(sortCriteria);
     }, [onSort, sortCriteria]);
 
-    return <thead className="rd-head">
+    return <thead className="rd-head" style={style.tableHead}>
         <tr>
             {actions && actions.length ? <td>
                 <input type="checkbox" onChange={onBulkSelection} />
@@ -21,7 +21,12 @@ const GMTableHead = ({ actions, fields, onBulkSelection, onMenuAction, onSort })
                 <td key={field.key} onClick={() => processSortCriteria(field.key, setSortCriteria)}> {field.title}</td>
             )}
             {actions && actions.length ? <td>
-                <ContextMenu actions={actions} onMenuAction={action => processAction(action, onMenuAction)} text="Action" />
+                <ContextMenu 
+                    actions={actions} 
+                    onMenuAction={action => processAction(action, onMenuAction)} 
+                    style={style}
+                    text="Action" 
+                    />
             </td> : <></>}
         </tr>
     </thead>
