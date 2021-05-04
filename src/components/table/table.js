@@ -62,7 +62,7 @@ const Table = ({ config, onDataRequest, onMenuAction, onItemClick }) => {
                     isSelected={selectedItems[item[primaryKey]]}
                     key={item[primaryKey]}
                     onItemClick={onItemClick}
-                    onItemSelection={itemData => handleItemSelection(itemData, primaryKey, selectedItems)}
+                    onItemSelection={itemData => handleItemSelection(itemData, primaryKey, setSelectedItems)}
                     onMenuAction={action => processMenuAction(action, selectedItems, onMenuAction)}
                 />)}
             </tbody>

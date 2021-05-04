@@ -78,7 +78,7 @@ it("renders an item:", () => {
           r.abdulkadir@gmail.com
         </td>
         <td>
-          Mon May 03 2021
+          Tue May 04 2021
         </td>
         <td>
           <div
