@@ -21,10 +21,40 @@ This datatable is only optimized for web views.
 
 ## Table Configuration
 
+### [prop] config
 Property | Type | Required | Default | Description
 ---------|------|----------|---------|------------
-config.actions.bulk | Array | No | [] | List of names of any actions that can be performed on multiple items.
-config.actions.single | Array | No | [] | List of names of any actions that can be performed on line items.
+actions | Object | No |  | Action config.
+fields | Array | Yes | [] | List of table head columns.
+items | Array | Yes | [] | List of line items.
+numOfRowsPerPage | Number | Yes | 10 | Number of line items to display per page.
+primaryKey | String | Yes | 'id'| *Unique property on each line item*. It must be present in each line item.
+style | Object | N0 | | Custom object styling.
+
+#### config.actions
+Property | Type | Required | Default | Description
+---------|------|----------|---------|------------
+bulk | Array | No | [] | List of names of any actions that can be performed on multiple items.
+single | Array | No | [] | List of names of any actions that can be performed on individual line items.
+
+#### config.fields
+Property | Type | Required | Default | Description
+---------|------|----------|---------|------------
+key | String | Yes |  | Unique name of the field. It is used to internally identify the column and it must be present as a key on every line item. 
+title | String | Yes |  | Title of the column for display purposes
+isSortable | Boolean | No | | Specifies whether the table can sort the field.
+formatter | Function | No | | A custom formatting function applied the field for each line item.
+
+#### config.style
+Custom styling declaration.
+
+Property | Type | Required | Default | Description
+---------|------|----------|---------|------------
+tableWrapper | Object | No | | Styling rule to be applied on the table wrapper element. 
+table | Object | No | | Styling rule to be applied on the table element. 
+contextMenuTray | Object | No | | Styling rule to be applied on the context menu tray element. 
+contextMenuItem | Object | No | | Styling rule to be applied on the context menu item element. 
+footer | Object | No | | Styling rule to be applied on the table footer element. 
 
 
 ## Issues and Contributions
