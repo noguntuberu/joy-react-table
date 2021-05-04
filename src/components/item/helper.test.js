@@ -22,7 +22,7 @@ describe("Item Helper Test:", () => {
         Helper.processAction(action, payload, callback);
         expect(callback).toBeCalledWith({
             action,
-            payload,
+            payload: [payload],
             type: "single",
         });
    });

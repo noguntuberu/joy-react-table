@@ -19,9 +19,9 @@ This datatable is only optimized for web views.
 
 `npm install react-datatable --save`
 
-## Table Configuration
+## Props
 
-### [prop] config
+### config
 Property | Type | Required | Default | Description
 ---------|------|----------|---------|------------
 actions | Object | No |  | Action config.
@@ -55,6 +55,35 @@ table | Object | No | | Styling rule to be applied on the table element.
 contextMenuTray | Object | No | | Styling rule to be applied on the context menu tray element. 
 contextMenuItem | Object | No | | Styling rule to be applied on the context menu item element. 
 footer | Object | No | | Styling rule to be applied on the table footer element. 
+
+### onDataRequest
+A javascript function which should be called whenever the table requires more data. It must return an array of items to be added to the data table.
+
+It should take the following arguments:
+
+Argument | Type | Default | Description
+---------|-------------
+pageNumber | Number | 0 | Specifies the page number for proper pagination. 
+
+### onMenuAction
+A javascript function to be called whenever a menu action is performed on single or multiple items.
+
+It should take the following arguments:
+
+Argument | Type | Default | Description
+---------|---------|-------------
+action | String | ''  | The name of the action that is fired.
+payload | Array | [] | List of items to perform action on.
+type | Enum `('single | 'bulk')` | [] | Specifies whether it is a bulk or single item.
+
+### onItemClick
+A javascript function which handles click event on individual line items.
+
+It should accept the following arguments:
+
+Argument | Type | Default | Description
+---------|------|---------|------------
+item | Object | {} | The data for the clicked line item.
 
 
 ## Issues and Contributions
