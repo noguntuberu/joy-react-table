@@ -5,14 +5,15 @@
   "repository": "https://github.com/noguntuberu/simple-react-datatable.git",
   "license": "MIT",
   "description": "A simple, responsive react based datatable.",
+  "main": "index.js",
   "keywords": [
-    "react", 
-    "react-datatable", 
-    "datatable", 
-    "react dto", 
-    "react table", 
-    "react-tables", 
-    "react-data-table", 
+    "react",
+    "react-datatable",
+    "datatable",
+    "react dto",
+    "react table",
+    "react-tables",
+    "react-data-table",
     "data-table"
   ],
   "dependencies": {
@@ -29,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --coverage",
     "eject": "react-scripts eject"
-  }, 
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -49,7 +50,6 @@
     ]
   },
   "devDependencies": {
-    "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2"
