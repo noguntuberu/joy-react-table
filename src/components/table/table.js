@@ -25,6 +25,7 @@ const Table = ({ config, onDataRequest, onMenuAction, onItemClick }) => {
     const [sortCriteria, setSortCriteria] = useState({});
 
     const [makeRequest, setMakeRequest] = useState(false);
+    const [userStyle] = useState(style || {});
 
     useEffect(() => {
         setItemsToDisplay(() => handleItemsToDisplay(allItems, pageNumber, rowsPerPage));
@@ -38,25 +39,25 @@ const Table = ({ config, onDataRequest, onMenuAction, onItemClick }) => {
     }, [sortCriteria]);
 
     useEffect(() => {
-        if(!makeRequest) return;
+        if (!makeRequest) return;
         setAllItems(allItems => [
             ...allItems,
             ...handleDataRequest(pageNumber, onDataRequest),
         ])
         setMakeRequest(() => false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [makeRequest]);
 
-    return <div className="rd-table-wrapper" style={style.tableWrapper}>
-        <table className="rd-table" style={style.table}>
+    return <div className="rd-table-wrapper" style={userStyle.tableWrapper}>
+        <table className="rd-table" style={userStyle.table}>
             <GMTableHead
                 actions={actions.bulk}
                 fields={fields}
                 onBulkSelection={() => toggleBulkSelection(itemsToDisplay, primaryKey, selectedItems, setSelectedItems)}
                 onMenuAction={action => processMenuAction(action, selectedItems, onMenuAction)}
-                onSort={setSortCriteria} 
-                style={style}
-                />
+                onSort={setSortCriteria}
+                style={userStyle}
+            />
             <tbody>
                 {itemsToDisplay.map(item => <GMTableItem
                     actions={actions.single}
@@ -75,7 +76,7 @@ const Table = ({ config, onDataRequest, onMenuAction, onItemClick }) => {
             numOfRows={rowsPerPage}
             onPageChange={setPageNumber}
             onDataRequest={setMakeRequest}
-            style={style}
+            style={userStyle}
         />
     </div>
 };
