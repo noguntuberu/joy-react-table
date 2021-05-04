@@ -1,7 +1,7 @@
 /** */
 
 
-export const toggleBulkSelection = (itemsToDisplay, primaryKey, selectedItems, callback) => {
+export const toggleBulkSelection = (itemsToDisplay = [], primaryKey, selectedItems, callback) => {
     if (Object.keys(selectedItems).length === itemsToDisplay.length) {
         callback(() => ({}));
         return;
@@ -23,7 +23,7 @@ export const toggleBulkSelection = (itemsToDisplay, primaryKey, selectedItems, c
 export const handleDataRequest = (pageNumber, callback) => {
     const response = callback(pageNumber + 1);
     if (!Array.isArray(response)) return [];
-    return response;
+    return response || [];
 }
 
 export const handleItemSelection = (itemData, primaryKey, callback) => {
