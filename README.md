@@ -1,6 +1,9 @@
 # React Datatable - Simple React based data table.
 A simple and declarative datatable which offers much flexibility with as little configuration as possible.
-This data table was created due to the lack of a simple pluggable data table that required little configuration yet offered great flexibility.
+
+This data table was created to:
+* provide a simple pluggable data table that required little configuration yet offered great flexibility.
+* gives more control to the developer.
 
 This datatable is only optimized for web views.
 
@@ -74,7 +77,7 @@ Argument | Type | Default | Description
 ---------|------|---------|-------------
 action | String | ''  | The name of the action that is fired.
 payload | Array | [] | List of items to perform action on.
-type | Enum `('single | 'bulk')` | [] | Specifies whether it is a bulk or single item.
+type | Enum (`single`, `bulk`) | 'single' | Specifies whether it is a bulk or single item.
 
 ### onItemClick
 A javascript function which handles click event on individual line items.
