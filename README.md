@@ -62,7 +62,7 @@ A javascript function which should be called whenever the table requires more da
 It should take the following arguments:
 
 Argument | Type | Default | Description
----------|-------------
+---------|------|---------|------------
 pageNumber | Number | 0 | Specifies the page number for proper pagination. 
 
 ### onMenuAction
@@ -71,7 +71,7 @@ A javascript function to be called whenever a menu action is performed on single
 It should take the following arguments:
 
 Argument | Type | Default | Description
----------|---------|-------------
+---------|------|---------|-------------
 action | String | ''  | The name of the action that is fired.
 payload | Array | [] | List of items to perform action on.
 type | Enum `('single | 'bulk')` | [] | Specifies whether it is a bulk or single item.
