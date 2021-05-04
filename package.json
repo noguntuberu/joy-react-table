@@ -1,10 +1,17 @@
 {
   "name": "simple-react-datatable",
   "version": "1.0.0",
-  "author": "Nathan Oguntuberu <nateoguns.work@gmail.com>",
-  "repository": "https://github.com/noguntuberu/simple-react-datatable.git",
-  "license": "MIT",
   "description": "A simple, responsive react based datatable.",
+  "author": {
+    "name": "Oguntuberu Nathan O",
+    "email": "nateoguns.work@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noguntuberu/simple-react-datatable.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/noguntuberu/simple-react-datatable.git",
   "main": "index.js",
   "keywords": [
     "react",
