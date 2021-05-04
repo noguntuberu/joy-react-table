@@ -1,5 +1,5 @@
 {
-  "name": "simple-react-datatable",
+  "name": "joy-react-table",
   "version": "1.0.0",
   "description": "A simple, responsive react based datatable.",
   "author": {
@@ -8,10 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/noguntuberu/simple-react-datatable.git"
+    "url": "https://github.com/noguntuberu/joy-react-table.git"
   },
   "license": "MIT",
-  "homepage": "https://github.com/noguntuberu/simple-react-datatable.git",
+  "homepage": "https://github.com/noguntuberu/joy-react-table.git",
   "main": "index.js",
   "keywords": [
     "react",

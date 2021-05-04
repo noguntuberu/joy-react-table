@@ -1,9 +1,9 @@
-# React Datatable - Simple React based data table.
+# Joy React Datatable - Simple React based data table.
 A simple and declarative datatable which offers much flexibility with as little configuration as possible.
 
 This data table was created to:
 * provide a simple pluggable data table that required little configuration yet offered great flexibility.
-* gives more control to the developer.
+* gives more control and joy to the developer.
 
 This datatable is only optimized for web views.
 
@@ -18,7 +18,7 @@ This datatable is only optimized for web views.
 
 ## Installation
 
-`npm install react-datatable --save`
+`npm install joy-react-table --save`
 
 ## Props
 
@@ -179,6 +179,8 @@ const App = () => {
 }
 
 export default App;
+
+
 ```
 
 
@@ -186,7 +188,7 @@ export default App;
 Help is always welcome to the React Datatable project. If you think there's a feature missing or you found a bug, we'd appreciate it if you
 could spare some time and prepare a pull request. If you're only interested in making any contribution to this project, take a look at the open issues (especially "bugs").
 
-You can learn more about contributing in the [Contribution Docs](https://github.com/noguntuberu/simple-react-datatable/blob/main/contributing.md).
+You can learn more about contributing in the [Contribution Docs](https://github.com/noguntuberu/joy-react-table/blob/main/contributing.md).
 
 ## License
 [MIT](https://opensource.org/licenses/MIT).
