@@ -1,0 +1,20 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+
+name: React Datatable
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  test:
+    name: testing pushes on develop
+    runs-on: ubuntu-latest
+    steps:
+      - name: install dependencies
+        run: npm install
+      - name: run test
+        run: npm run test
