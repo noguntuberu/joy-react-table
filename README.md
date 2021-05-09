@@ -88,7 +88,7 @@ item | Object | {} | The data for the clicked line item.
 
 ## Example
 ```
-import RDTable from 'react-datatable';
+import RDTable from 'joy-react-table';
 
 const App = () => {
     const sample_data = [
